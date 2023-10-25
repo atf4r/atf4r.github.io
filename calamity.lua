@@ -98,3 +98,39 @@ for title, config in pairs(GUNS) do
 
     file:write(ROOT)
 end
+
+local indexFile = io.open("index.html", "w")
+
+local content = ""
+
+for GUN_NAME, _ in alphapairs(GUNS) do
+    content = content .. 
+    HTML.VTag("li",
+        HTML.HTag("a", 
+            GUN_NAME, 
+            {
+                href=string.format("%s.html", GUN_NAME)
+            }
+        ),
+        {class="list-group-item bg-dark"}
+    ),
+    {class="list-group mt-3", style=STYLE_SECONDARY_BG}
+end
+
+local BROWSEBODY = HTML.VTag("body",
+        HTML.VTag("div",
+            HTML.HTag("h1", "Gun Configs", {class="mt-4", style=STYLE_SECONDARY_BG..STYLE_BOLD_FG})..
+            HTML.VTag("ul", 
+                content
+            ),
+            {class="container text-light", style=STYLE_SECONDARY_BG}
+        ),
+        {style=STYLE_SECONDARY_BG}
+    )
+
+    local HEAD = HTML.VTag("head",
+        HTML.EnsureNewline(HTML.BOOTSTRAP_CDN_STUB)
+    )
+    
+    local ROOT = HTML.VTag("html", HEAD .. BROWSEBODY, {class="text-light", style=STYLE_SECONDARY_BG})
+    indexFile:write(ROOT)
