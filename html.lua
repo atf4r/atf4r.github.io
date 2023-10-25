@@ -26,6 +26,10 @@ function alphapairs(t)
     end
 end
 
+function HTML.ITag(t, props, c)
+    return HTML.HTag(t, c, props or {})
+end
+
 function HTML.HTag(t, c, props)
 
     local preamble = string.format("<%s", t)

@@ -53,6 +53,39 @@ local function createNavLiLabel(text)
     )
 end
 
+--[[
+
+<li class="nav-item">
+                            <h4 class="display-8">
+                                Guns
+                            </h4>
+                        </li>
+]]
+
+local NAVBAR_CONTENT = ""
+
+for GUN_NAME, _ in pairs(GUNS) do
+    NAVBAR_CONTENT = NAVBAR_CONTENT ..
+    HTML.ITag("li", {class="nav-item"},
+        HTML.ITag("a", {class="nav-link", href=string.format("%s.html", GUN_NAME)},
+            GUN_NAME
+        )
+    )
+end
+
+local NAVBAR = HTML.ITag("nav",{class="col-md-3 col-lg-2 d-md-block sidebar", id="sidebar"},
+    HTML.ITag("div",{class="position-sticky"}, 
+        HTML.ITag("ul", {class="nav flex-column"},
+            HTML.ITag("li", {class="nav-item"},
+                HTML.ITag("h4", {class="display-8"}, 
+                    "Guns"
+                )
+            )..
+            NAVBAR_CONTENT
+        )
+    )
+)
+
 local NAVITEMS = createNavLiLabel("Guns")
 for name, gun in alphapairs(GUNS) do
     NAVITEMS = NAVITEMS .. createNavLi(name)
@@ -70,22 +103,23 @@ local SIDEBAR = HTML.VTag("nav",
     )
 
 for title, config in pairs(GUNS) do
-    local file = io.open(title .. ".html", "w")
+    local f = io.open(title .. ".html", "w")
 
     local DATA = {}
 
     local BODY = HTML.VTag("body",
         HTML.VTag("div",
+            NAVBAR..
             HTML.VTag("main",
             HTML.HTag("h1", title, {class="display-4 bg-dark text-light"})..
             HTML.VTag("div",
                 HTML.HTag("h1", TITLE, {class="display-6"}) ..
                 HTML.TitleSubtextPairs(config, FORMAT, "ol", true),
                 {class="container bg-dark text-light"}
-            ), {class="col-md-9 ms-sm-auto col-lg-10 px-md-4"}),
-            {class="row"}
+            ), {class="col-md-9 ms-sm-auto col-lg-1Tag0 px-md-4"}),
+            {class="row container"}
         ),
-        {class="container bg-dark text-light"}
+        {class="bg-dark container text-light", style="width:100vw;"}
     )
 
     -- use the bootstrap stub template
@@ -96,7 +130,8 @@ for title, config in pairs(GUNS) do
 
     local ROOT = HTML.VTag("html", HEAD .. BODY, {class="bg-dark text-light"})
 
-    file:write(ROOT)
+    f:write(ROOT)
+    f:close()
 end
 
 local indexFile = io.open("index.html", "w")
