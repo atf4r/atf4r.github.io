@@ -76,22 +76,22 @@ for title, config in pairs(GUNS) do
 
     local BODY = HTML.VTag("body",
         HTML.VTag("div",
-            SIDEBAR..
             HTML.VTag("main",
             HTML.HTag("h1", title, {class="display-4 bg-dark text-light"})..
             HTML.VTag("div",
                 HTML.HTag("h1", TITLE, {class="display-6"}) ..
                 HTML.TitleSubtextPairs(config, FORMAT, "ol", true),
-                {class="container-flex bg-dark text-light"}
+                {class="container bg-dark text-light"}
             ), {class="col-md-9 ms-sm-auto col-lg-10 px-md-4"}),
             {class="row"}
         ),
-        {class="container-flex bg-dark text-light"}
+        {class="container bg-dark text-light"}
     )
 
     -- use the bootstrap stub template
     local HEAD = HTML.VTag("head",
-        HTML.EnsureNewline(HTML.BOOTSTRAP_CDN_STUB)
+        HTML.EnsureNewline(HTML.BOOTSTRAP_CDN_STUB)..
+        [[<meta name="viewport" content="width=device-width, initial-scale=1.0">]]
     )
 
     local ROOT = HTML.VTag("html", HEAD .. BODY, {class="bg-dark text-light"})
