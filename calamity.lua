@@ -99,7 +99,7 @@ local SIDEBAR = HTML.VTag("nav",
             ),
             {class="position-sticky"}
         ),
-        {class="col-md-1 col-lg-1 d-md-block sidebar", id="sidebar", style=STYLE_PRIMARY_BG}
+        {class="col-md-1 d-md-block sidebar", id="sidebar", style=STYLE_PRIMARY_BG}
     )
 
 for title, config in pairs(GUNS) do
@@ -116,10 +116,10 @@ for title, config in pairs(GUNS) do
                 HTML.HTag("h1", TITLE, {class="display-6"}) ..
                 HTML.TitleSubtextPairs(config, FORMAT, "ol", true),
                 {class="container bg-dark text-light"}
-            ), {class="col-md-9 ms-sm-auto col-lg-1Tag0 px-md-4"}),
-            {class="row container"}
+            ), {class="col-lg-9"}),
+            {class="row container-fluid"}
         ),
-        {class="bg-dark container text-light", style="width:100vw;"}
+        {class="bg-dark container-fluid text-light w-100 ", style="width:100vw;"}
     )
 
     -- use the bootstrap stub template

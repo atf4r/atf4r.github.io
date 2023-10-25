@@ -4,9 +4,9 @@
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	</head>
-	<body class="bg-dark container text-light" style="width:100vw;">
-		<div class="row container">
-			<nav class="col-md-3 col-lg-2 d-md-block sidebar" id="sidebar">
+	<body style="width:100vw;" class="bg-dark container-fluid text-light w-100 ">
+		<div class="row container-fluid">
+			<nav id="sidebar" class="col-md-3 col-lg-2 d-md-block sidebar">
 				<div class="position-sticky">
 					<ul class="nav flex-column">
 						<li class="nav-item">
@@ -15,177 +15,177 @@
 							</h4>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="Makarov.html">
-								Makarov
+							<a href="M1911.html" class="nav-link">
+								M1911
 							</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="M1911A1.html">
+							<a href="M1911A1.html" class="nav-link">
 								M1911A1
 							</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="M1911.html">
-								M1911
+							<a href="Makarov.html" class="nav-link">
+								Makarov
 							</a>
 						</li>
 					</ul>
 				</div>
 			</nav>
-			<main class="col-md-9 ms-sm-auto col-lg-1Tag0 px-md-4">
+			<main class="col-lg-9">
 				<h1 class="display-4 bg-dark text-light">
 					Makarov
 				</h1>
 				<div class="container bg-dark text-light">
 					<h1 class="display-6">
 					</h1>
-					<ul class="list-group" style="background-color:#17181a;">
-						<li class="list-group-item text-secondary" style="background-color:#17181a;">
-							<div class="fw-bold" style="background-color:#17181a;color:#f5c542;">
+					<ul style="background-color:#17181a;" class="list-group">
+						<li style="background-color:#17181a;" class="list-group-item text-secondary">
+							<div style="background-color:#17181a;color:#f5c542;" class="fw-bold">
 								TrajectoryProfile
 							</div>
-							<ul class="list-group" style="background-color:#17181a;">
-								<li class="list-group-item text-secondary" style="background-color:#17181a;">
-									<div class="fw-bold" style="background-color:#17181a;color:#f5c542;">
+							<ul style="background-color:#17181a;" class="list-group">
+								<li style="background-color:#17181a;" class="list-group-item text-secondary">
+									<div style="background-color:#17181a;color:#f5c542;" class="fw-bold">
 										DropInfluence
 									</div>
 									<div class="row bg-dark">
-										<div container-flex class="col-4" style="background-color:#17181a;color:#FFFFFF;">
+										<div container-flex style="background-color:#17181a;color:#FFFFFF;" class="col-4">
 											1.5
 										</div container-flex>
-										<div container-flex class="col" style="background-color:#17181a;">
+										<div container-flex style="background-color:#17181a;" class="col">
 											(number) Bullet gravity multiplier, (-inf, inf)
 										</div container-flex>
 									</div>
 								</li>
-								<li class="list-group-item text-secondary" style="background-color:#17181a;">
-									<div class="fw-bold" style="background-color:#17181a;color:#f5c542;">
+								<li style="background-color:#17181a;" class="list-group-item text-secondary">
+									<div style="background-color:#17181a;color:#f5c542;" class="fw-bold">
 										InitialSpeed
 									</div>
 									<div class="row bg-dark">
-										<div container-flex class="col-4" style="background-color:#17181a;color:#FFFFFF;">
+										<div container-flex style="background-color:#17181a;color:#FFFFFF;" class="col-4">
 											800
 										</div container-flex>
-										<div container-flex class="col" style="background-color:#17181a;">
+										<div container-flex style="background-color:#17181a;" class="col">
 											(number) Muzzle velocity magnitude in studs per second (0, inf)
 										</div container-flex>
 									</div>
 								</li>
-								<li class="list-group-item text-secondary" style="background-color:#17181a;">
-									<div class="fw-bold" style="background-color:#17181a;color:#f5c542;">
+								<li style="background-color:#17181a;" class="list-group-item text-secondary">
+									<div style="background-color:#17181a;color:#f5c542;" class="fw-bold">
 										MaxDistance
 									</div>
 									<div class="row bg-dark">
-										<div container-flex class="col-4" style="background-color:#17181a;color:#FFFFFF;">
+										<div container-flex style="background-color:#17181a;color:#FFFFFF;" class="col-4">
 											250
 										</div container-flex>
-										<div container-flex class="col" style="background-color:#17181a;">
+										<div container-flex style="background-color:#17181a;" class="col">
 											(number) Maximum travel distance, lower values = higher performance. (0, inf)
 										</div container-flex>
 									</div>
 								</li>
-								<li class="list-group-item text-secondary" style="background-color:#17181a;">
-									<div class="fw-bold" style="background-color:#17181a;color:#f5c542;">
+								<li style="background-color:#17181a;" class="list-group-item text-secondary">
+									<div style="background-color:#17181a;color:#f5c542;" class="fw-bold">
 										MaxRebounds
 									</div>
 									<div class="row bg-dark">
-										<div container-flex class="col-4" style="background-color:#17181a;color:#FFFFFF;">
+										<div container-flex style="background-color:#17181a;color:#FFFFFF;" class="col-4">
 											0
 										</div container-flex>
-										<div container-flex class="col" style="background-color:#17181a;">
+										<div container-flex style="background-color:#17181a;" class="col">
 											(integer) Amount of possible ricochets, lower values = higher performance. [0, ~5)
 										</div container-flex>
 									</div>
 								</li>
-								<li class="list-group-item text-secondary" style="background-color:#17181a;">
-									<div class="fw-bold" style="background-color:#17181a;color:#f5c542;">
+								<li style="background-color:#17181a;" class="list-group-item text-secondary">
+									<div style="background-color:#17181a;color:#f5c542;" class="fw-bold">
 										PierceDeviation
 									</div>
 									<div class="row bg-dark">
-										<div container-flex class="col-4" style="background-color:#17181a;color:#FFFFFF;">
+										<div container-flex style="background-color:#17181a;color:#FFFFFF;" class="col-4">
 											1.0
 										</div container-flex>
-										<div container-flex class="col" style="background-color:#17181a;">
+										<div container-flex style="background-color:#17181a;" class="col">
 											(number) Multiplier to directional influence of the normal vector upon piercing [0, inf)
 										</div container-flex>
 									</div>
 								</li>
-								<li class="list-group-item text-secondary" style="background-color:#17181a;">
-									<div class="fw-bold" style="background-color:#17181a;color:#f5c542;">
+								<li style="background-color:#17181a;" class="list-group-item text-secondary">
+									<div style="background-color:#17181a;color:#f5c542;" class="fw-bold">
 										PierceFriction
 									</div>
 									<div class="row bg-dark">
-										<div container-flex class="col-4" style="background-color:#17181a;color:#FFFFFF;">
+										<div container-flex style="background-color:#17181a;color:#FFFFFF;" class="col-4">
 											2.5
 										</div container-flex>
-										<div container-flex class="col" style="background-color:#17181a;">
+										<div container-flex style="background-color:#17181a;" class="col">
 											(number) Multiplier to penetration speed deficit upon piercing a part [0, inf)
 										</div container-flex>
 									</div>
 								</li>
-								<li class="list-group-item text-secondary" style="background-color:#17181a;">
-									<div class="fw-bold" style="background-color:#17181a;color:#f5c542;">
+								<li style="background-color:#17181a;" class="list-group-item text-secondary">
+									<div style="background-color:#17181a;color:#f5c542;" class="fw-bold">
 										WindInfluence
 									</div>
 									<div class="row bg-dark">
-										<div container-flex class="col-4" style="background-color:#17181a;color:#FFFFFF;">
+										<div container-flex style="background-color:#17181a;color:#FFFFFF;" class="col-4">
 											0.0
 										</div container-flex>
-										<div container-flex class="col" style="background-color:#17181a;">
+										<div container-flex style="background-color:#17181a;" class="col">
 											(number) Amount of acceleration in st/s multiplied by normal vector wind [0, inf)
 										</div container-flex>
 									</div>
 								</li>
 							</ul>
 						</li>
-						<li class="list-group-item text-secondary" style="background-color:#17181a;">
-							<div class="fw-bold" style="background-color:#17181a;color:#f5c542;">
+						<li style="background-color:#17181a;" class="list-group-item text-secondary">
+							<div style="background-color:#17181a;color:#f5c542;" class="fw-bold">
 								ammoCapacity
 							</div>
 							<div class="row bg-dark">
-								<div container-flex class="col-4" style="background-color:#17181a;color:#FFFFFF;">
+								<div container-flex style="background-color:#17181a;color:#FFFFFF;" class="col-4">
 									8
 								</div container-flex>
-								<div container-flex class="col" style="background-color:#17181a;">
+								<div container-flex style="background-color:#17181a;" class="col">
 									(integer) Amount of bullets the magazine can store. [1, inf)
 								</div container-flex>
 							</div>
 						</li>
-						<li class="list-group-item text-secondary" style="background-color:#17181a;">
-							<div class="fw-bold" style="background-color:#17181a;color:#f5c542;">
+						<li style="background-color:#17181a;" class="list-group-item text-secondary">
+							<div style="background-color:#17181a;color:#f5c542;" class="fw-bold">
 								description
 							</div>
 							<div class="row bg-dark">
-								<div container-flex class="col-4" style="background-color:#17181a;color:#FFFFFF;">
+								<div container-flex style="background-color:#17181a;color:#FFFFFF;" class="col-4">
 									A cheap russian pistol chambered in 9x18mm Makarov. It has janky, harsh recoil thanks to its no-frills direct blowback system.
 								</div container-flex>
-								<div container-flex class="col" style="background-color:#17181a;">
+								<div container-flex style="background-color:#17181a;" class="col">
 									(string) A brief but rich description of the gun, its capabilities, and personality.
 								</div container-flex>
 							</div>
 						</li>
-						<li class="list-group-item text-secondary" style="background-color:#17181a;">
-							<div class="fw-bold" style="background-color:#17181a;color:#f5c542;">
+						<li style="background-color:#17181a;" class="list-group-item text-secondary">
+							<div style="background-color:#17181a;color:#f5c542;" class="fw-bold">
 								rpm
 							</div>
 							<div class="row bg-dark">
-								<div container-flex class="col-4" style="background-color:#17181a;color:#FFFFFF;">
+								<div container-flex style="background-color:#17181a;color:#FFFFFF;" class="col-4">
 									600
 								</div container-flex>
-								<div container-flex class="col" style="background-color:#17181a;">
+								<div container-flex style="background-color:#17181a;" class="col">
 									(number) Rate of fire expressed in rounds per minute. (0, ~900]
 								</div container-flex>
 							</div>
 						</li>
-						<li class="list-group-item text-secondary" style="background-color:#17181a;">
-							<div class="fw-bold" style="background-color:#17181a;color:#f5c542;">
+						<li style="background-color:#17181a;" class="list-group-item text-secondary">
+							<div style="background-color:#17181a;color:#f5c542;" class="fw-bold">
 								simulateChamber
 							</div>
 							<div class="row bg-dark">
-								<div container-flex class="col-4" style="background-color:#17181a;color:#FFFFFF;">
+								<div container-flex style="background-color:#17181a;color:#FFFFFF;" class="col-4">
 									true
 								</div container-flex>
-								<div container-flex class="col" style="background-color:#17181a;">
+								<div container-flex style="background-color:#17181a;" class="col">
 									(boolean) Simulates a closed bolt chamber, allowing for one additional bullet to be loaded irrespective of the magazine.
 								</div container-flex>
 							</div>
