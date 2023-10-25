@@ -39,6 +39,20 @@ local PAGES = {
 local HTML = require('html')
 HTML.USE_BOOTSTRAP = true
 
+
+--[[
+    <a href="index.html" style="text-decoration: none; color: #000;">
+        <div style="font-size: 10em; text-align: center; line-height: 1em; height: 100vh; display: flex; align-items: center; justify-content: center;">
+            <span>#</span>
+        </div>
+    </a>
+]]
+local BACKBUTTON = HTML.ITag("a", {href="index.html", style="text-decoration:none;"},
+    HTML.ITag("div", {style="font-size: 10em; text-align: center; line-height: 1em; height: 100vh; display: flex; align-items: center; justify-content: center;"},
+        HTML.ITag("span", nil, '#')
+    )
+)
+
 local function createNavLi(gunName)
     return HTML.HTag("li",
         HTML.HTag("a",gunName,{class="nav-link active", href=string.format("./%s.html", gunName)}),
@@ -109,6 +123,7 @@ for title, config in pairs(GUNS) do
 
     local BODY = HTML.VTag("body",
         HTML.VTag("div",
+            BACKBUTTON..
             NAVBAR..
             HTML.VTag("main",
             HTML.HTag("h1", title, {class="display-4 bg-dark text-light"})..
