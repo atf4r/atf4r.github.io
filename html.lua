@@ -1,235 +1,148 @@
 local HTML = {
-    USE_BOOTSTRAP = false,
+	USE_BOOTSTRAP = false,
 
-    BOOTSTRAP_CDN_STUB = 
+	BOOTSTRAP_CDN_STUB = 
 [[<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>]],
 
-    Indentation = "\t"
+	Indentation = "\t"
 }
 
-function alphapairs(t)
-    local keys = {}
-    for key, _ in pairs(t) do
-        table.insert(keys, key)
-    end
-    table.sort(keys)
+function HTML.STag(t, props)
+	
+	local preamble = string.format("<%s", t)
 
-    local index = 0
+	if type(props)=="table" then
+		for i,v in pairs(props) do
+			preamble = preamble .. string.format([[ %s="%s"]], i, v)
+		end
+	elseif props == nil then
+		preamble = preamble
+	else
+		error("Unexpected argument #3, properties should be a table")
+	end
 
-    return function()
-        index = index + 1
-        if keys[index] then
-            local key = keys[index]
-            return key, t[key]
-        end
-    end
+	preamble = preamble .. ">\n"
+
+	return preamble
 end
 
-function HTML.ITag(t, props, c)
-    return HTML.HTag(t, c, props or {})
+function HTML.HTag(t, props, c)
+
+	local preamble = string.format("<%s", t)
+
+	if type(props)=="table" then
+		for i,v in pairs(props) do
+			preamble = preamble .. string.format([[ %s="%s"]], i, v)
+		end
+	elseif props == nil then
+		preamble = preamble
+	else
+		error("Unexpected argument #3, properties should be a table")
+	end
+
+	preamble = preamble .. ">"
+
+	return preamble .. string.sub(HTML.EnsureNewline(c or ""), 1, -2) .. string.format("</%s>\n", t)
 end
-
-function HTML.HTag(t, c, props)
-
-    local preamble = string.format("<%s", t)
-
-    if type(props)=="table" then
-        for i,v in pairs(props) do
-            preamble = preamble .. string.format([[ %s="%s"]], i, v)
-        end
-    elseif props == nil then
-        preamble = preamble
-    else
-        error("Unexpected argument #3, properties should be a table")
-    end
-
-    preamble = preamble .. ">\n"
-
-    return preamble .. HTML.EnsureNewline(HTML.Indent(c or "")) .. string.format("</%s>\n", t)
-end
-
-HTML.Indent = HTML.IndentTab
 
 function HTML.Indent(text)
-    -- Split the text into lines using the newline character (\n) as the delimiter
-    local lines = {}
-    for line in string.gmatch(text or "", "[^\n]+") do
-        table.insert(lines, line)
-    end
+	-- Split the text into lines using the newline character (\n) as the delimiter
+	local lines = {}
+	for line in string.gmatch(text or "", "[^\n]+") do
+		table.insert(lines, line)
+	end
 
-    -- Add four spaces before each line and concatenate the lines
-    local indentedText = ""
-    for _, line in ipairs(lines) do
-        indentedText = indentedText .. HTML.Indentation .. line .. "\n"
-    end
+	-- Add four spaces before each line and concatenate the lines
+	local indentedText = ""
+	for _, line in ipairs(lines) do
+		indentedText = indentedText .. HTML.Indentation .. line .. "\n"
+	end
 
-    return indentedText
+	return indentedText
 end
 
 function HTML.EnsureNewline(text)
-    if string.sub(text, -1) ~= "\n" then
-        return text .. "\n"
-    else
-        return text
-    end
+	if string.sub(text, -1) ~= "\n" then
+		return text .. "\n"
+	else
+		return text
+	end
 end
 
-function HTML.VTag(t, c, props)
+function HTML.VTag(t, props, c)
 
-    local preamble = string.format("<%s", t)
+	local preamble = string.format("<%s", t)
 
-    if type(props)=="table" then
-        for i,v in pairs(props) do
-            preamble = preamble .. string.format([[ %s="%s"]], i, v)
-        end
-    elseif props == nil then
-        preamble = preamble
-    else
-        error("Unexpected argument #3, properties should be a table")
-    end
+	if type(props)=="table" then
+		for i,v in pairs(props) do
+			preamble = preamble .. string.format([[ %s="%s"]], i, v)
+		end
+	elseif props == nil then
+		preamble = preamble
+	else
+		error("Unexpected argument #3, properties should be a table")
+	end
 
-    preamble = preamble .. ">\n"
+	preamble = preamble .. ">\n"
 
-    return preamble .. HTML.EnsureNewline(HTML.Indent(c)) .. string.format("</%s>\n", t)
+	return preamble .. HTML.EnsureNewline(HTML.Indent(c)) .. string.format("</%s>\n", t)
 end
 
-function cats(delim,...)
-    local r = ""
-    for _,s in pairs({...}) do
-        r = r .. delim .. s
-    end
-    r = string.sub(r, #delim + 1, -1)
-    return r
+function NumNewLines(inputString)
+	local count = 0
+	for i = 1, #inputString do
+		if inputString:sub(i, i) == "\n" then
+			count = count + 1
+		end
+	end
+	return count
 end
 
-function OrderedList(list)
-    local str = ""
-
-    for key,val in pairs(list) do
-        local inner
-        
-        if type(val) == "table" then
-            inner = KeyValuePairs(list)
-        else
-            if not HTML.USE_BOOTSTRAP then
-                inner = HTML.HTag("code",
-                    list
-                )
-            else
-                inner = list
-            end
-        end
-
-        str =
-            str .. '\n' .. 
-            HTML.VTag("ol",
-                inner
-            )
-    end
-
-    str = string.sub(str, 2, -1)
-
-    str = HTML.VTag("ul", str, {class=list_class}) -- wrap body in element
-
-    return str
+function TableSub(table, startIndex, endIndex)
+	local result = {}
+	for i = startIndex, (endIndex or #table) do
+		result[#result+1]=table[i]
+	end
+	return result
 end
 
---[[
-    <div class="ms-2 me-auto">
-      <div class="fw-bold">Subheading</div>
-      Cras justo odio
-    </div>
-]]
+function HTML.VExpr(vex)
+	if type(vex) ~= "table" then
+		return tostring(vex) or vex
+	end
 
-local secondaryBackground = "bg-dark"
+	local tag = vex[1]
+	local props = vex[2]
+	local args = TableSub(vex, 3)
 
-local STYLE_PRIMARY_BG = "background-color:#2e3133;"
-local STYLE_SECONDARY_BG = "background-color:#17181a;"
-local STYLE_BOLD_FG = "color:#f5c542;"
-local STYLE_PROPERTY_FG = "color:#FFFFFF;"
+	if #args<= 0 then
+		return HTML.STag(tag, props)
+	end
 
-function HTML.TitleSubtextPairs(tab, format, tag, hideKey, ...)
-    local buf = ""
-    for key, val in alphapairs(tab) do
-        local heading = HTML.HTag("div", key, {class="fw-bold", style=STYLE_SECONDARY_BG..STYLE_BOLD_FG})
-        local text
-        if type(val) == "table" then
-            text = HTML.TitleSubtextPairs(val, format[key], tag, hideKey, ...)
-        else
-            text = HTML.VTag("div",
-                            HTML.VTag("div container-flex",tostring(val), {class="col-4", style=STYLE_SECONDARY_BG..STYLE_PROPERTY_FG})..
-                            HTML.VTag("div container-flex",tostring(format[key]), {class="col", style=STYLE_SECONDARY_BG}),
-                        {class="row " .. secondaryBackground})
-        end
+	local content = ""
 
-        local itemContent = (HTML.EnsureNewline(heading) .. HTML.EnsureNewline(text))
+	for _, svex in pairs(args) do
+		if type(svex)=="table" then
+			content = content .. HTML.EnsureNewline(HTML.VExpr(svex))
+		else
+			content = content .. string.sub(HTML.EnsureNewline(tostring(svex)), 1, -2)
+		end
+	end
 
-        buf = buf .. HTML.VTag("li", itemContent, {class="list-group-item text-secondary", style=STYLE_SECONDARY_BG})
-    end
-
-    buf = HTML.VTag("ul", buf, {class="list-group", style=STYLE_SECONDARY_BG})
-
-    return buf
+	if string.match(content, "\n") then
+		return HTML.VTag(tag, props, content)
+	else
+		return HTML.HTag(tag, props, content)
+	end    
 end
 
-
-function HTML.KeyValuePairs(tab, tag, hideKey, ...)
-    local list_class = nil
-    local item_class = nil
-    if HTML.USE_BOOTSTRAP then
-        if hideKey then
-            list_class = "list-group list-group-numbered"
-        else
-            list_class = "list-group"
-        end
-        item_class = "list-group-item"
-    end
-    tag = tag or "ul"
-
-    local str = ""
-
-    for key,val in alphapairs(tab) do
-        local inner
-        
-        if type(val) == "table" then
-            if hideKey then
-                inner = HTML.KeyValuePairs(val, "ul", false, ...)
-            else
-                inner = HTML.EnsureNewline(HTML.HTag("code", key .. " =")) .. HTML.KeyValuePairs(val, "ul", false, ...)
-            end
-        else
-            if not hideKey then
-                inner = key " = " .. val
-                if not HTML.USE_BOOTSTRAP then
-                    inner = HTML.HTag("code",
-                        inner
-                    )
-                end
-            else
-                inner = val
-                if not HTML.USE_BOOTSTRAP then
-                    inner = HTML.HTag("code",
-                        val
-                    )
-                end
-            end
-        end
-
-        str =
-            str .. '\n' .. 
-            HTML.VTag("li",
-                inner,
-                {class=item_class}
-            )
-    end
-
-    str = string.sub(str, 2, -1)
-
-    str = HTML.VTag(tag, str, {class=list_class}) -- wrap body in element
-
-    return str
+function HTML.PExpr(...)
+	local r = ""
+	for i,v in pairs({...}) do
+		r = r .. HTML.EnsureNewline(HTML.VExpr(v))
+	end
+	return r
 end
-
 
 return HTML
