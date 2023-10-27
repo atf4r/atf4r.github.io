@@ -81,22 +81,24 @@ for key, value in pairs(bases.GunConfig) do
             print("Oh no! Anyways...")
         else
             local view = 
-            {"body", {class="container row bg-dark text-light"},
+            {"body", {class="container col bg-dark text-light"},
                 {"h1", {class="display-4"}, "GunConfig"},
-                {"div", {class="col-md-1"},
-                    {"div", {class="row"},
-                        HyperlinkList(links)
-                    }
-                },
-                {"div", {class="col"},
-                    {"div", {class="row"},
-                        {"div", {class="col bg-dark text-light"}, 
-                            {"h3", {class="display-8"}, key},
-                            RecursiveList(value)
-                        },
-                        {"div", {class="col bg-dark text-light"}, 
-                            {"h3", {class="display-8"}, "Format"},
-                            RecursiveList(bases.GunConfig.FORMAT)
+                {"div", {class="row"},
+                    {"div", {class="col-md-1"},
+                        {"div", {class="row"},
+                            HyperlinkList(links)
+                        }
+                    },
+                    {"div", {class="col"},
+                        {"div", {class="row"},
+                            {"div", {class="col bg-dark text-light"}, 
+                                {"h3", {class="display-8"}, key},
+                                RecursiveList(value)
+                            },
+                            {"div", {class="col bg-dark text-light"}, 
+                                {"h3", {class="display-8"}, "Format"},
+                                RecursiveList(bases.GunConfig.FORMAT)
+                            }
                         }
                     }
                 }

@@ -1,8 +1,8 @@
 <html lang="en">
 	<head>
 		<title>Test Site</title>
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css">
-		<meta name="viewport" charset="UTF-8" content="width=device-width, initial-scale=1.0">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
+		<meta charset="UTF-8" content="width=device-width, initial-scale=1.0" name="viewport">
 		<style>
 			        .center-viewport {
 			            position: absolute;
@@ -17,69 +17,71 @@
 			        
 		</style>
 	</head>
-	<body class="container row bg-dark text-light">
+	<body class="container col bg-dark text-light">
 		<h1 class="display-4">GunConfig</h1>
-		<div class="col-md-1">
-			<div class="row">
-				<ul>
-					<li class="btn-dark btn">
-						<a href="M1911A1.html">M1911A1</a>
-					</li>
-					<li class="btn-dark btn">
-						<a href="M1911.html">M1911</a>
-					</li>
-					<li class="btn-dark btn">
-						<a href="Makarov.html">Makarov</a>
-					</li>
-				</ul>
-			</div>
-		</div>
-		<div class="col">
-			<div class="row">
-				<div class="col bg-dark text-light">
-					<h3 class="display-8">M1911</h3>
-					<ul class="list-group text-light bg-secondary">
-						<li class="list-group-item bg-secondary text-light">
-							<strong>TrajectoryProfile</strong>: {
-							<ul class="list-group text-light bg-secondary">
-								<li class="list-group-item bg-secondary text-light"><strong>PierceFriction</strong> : 2.5</li>
-								<li class="list-group-item bg-secondary text-light"><strong>InitialSpeed</strong> : 1500</li>
-								<li class="list-group-item bg-secondary text-light"><strong>MaxRebounds</strong> : 1</li>
-								<li class="list-group-item bg-secondary text-light"><strong>DropInfluence</strong> : 2.5</li>
-								<li class="list-group-item bg-secondary text-light"><strong>MaxDistance</strong> : 250</li>
-								<li class="list-group-item bg-secondary text-light"><strong>PierceDeviation</strong> : 1.0</li>
-								<li class="list-group-item bg-secondary text-light"><strong>WindInfluence</strong> : 0.0</li>
-							</ul>
-							}
+		<div class="row">
+			<div class="col-md-1">
+				<div class="row">
+					<ul>
+						<li class="btn-dark btn">
+							<a href="Makarov.html">Makarov</a>
 						</li>
-						<li class="list-group-item bg-secondary text-light"><strong>ammoCapacity</strong> : 8</li>
-						<li class="list-group-item bg-secondary text-light"><strong>description</strong> : Reliable pistol that endured (some fanatics would argue it even won) both world wars. It's known to hold up to abuse, and get the job done. The powerful .45 ACP caliber is also known to be quite a potent threat.</li>
-						<li class="list-group-item bg-secondary text-light"><strong>rpm</strong> : 400</li>
-						<li class="list-group-item bg-secondary text-light"><strong>simulateChamber</strong> : true</li>
+						<li class="btn-dark btn">
+							<a href="M1911.html">M1911</a>
+						</li>
+						<li class="btn-dark btn">
+							<a href="M1911A1.html">M1911A1</a>
+						</li>
 					</ul>
 				</div>
-				<div class="col bg-dark text-light">
-					<h3 class="display-8">Format</h3>
-					<ul class="list-group text-light bg-secondary">
-						<li class="list-group-item bg-secondary text-light">
-							<strong>TrajectoryProfile</strong>: {
-							<ul class="list-group text-light bg-secondary">
-								<li class="list-group-item bg-secondary text-light"><strong>DragInfluence</strong> : (number) [unused] amount of acceleration against the bullet in st/s^2</li>
-								<li class="list-group-item bg-secondary text-light"><strong>PierceFriction</strong> : (number) Multiplier to penetration speed deficit upon piercing a part [0, inf)</li>
-								<li class="list-group-item bg-secondary text-light"><strong>InitialSpeed</strong> : (number) Muzzle velocity magnitude in studs per second (0, inf)</li>
-								<li class="list-group-item bg-secondary text-light"><strong>MaxRebounds</strong> : (integer) Amount of possible ricochets, lower values = higher performance. [0, ~5)</li>
-								<li class="list-group-item bg-secondary text-light"><strong>DropInfluence</strong> : (number) Bullet gravity multiplier, (-inf, inf)</li>
-								<li class="list-group-item bg-secondary text-light"><strong>MaxDistance</strong> : (number) Maximum travel distance, lower values = higher performance. (0, inf)</li>
-								<li class="list-group-item bg-secondary text-light"><strong>PierceDeviation</strong> : (number) Multiplier to directional influence of the normal vector upon piercing [0, inf)</li>
-								<li class="list-group-item bg-secondary text-light"><strong>WindInfluence</strong> : (number) Amount of acceleration in st/s multiplied by normal vector wind [0, inf)</li>
-							</ul>
-							}
-						</li>
-						<li class="list-group-item bg-secondary text-light"><strong>ammoCapacity</strong> : (integer) Amount of bullets the magazine can store. [1, inf)</li>
-						<li class="list-group-item bg-secondary text-light"><strong>description</strong> : (string) A brief but rich description of the gun, its capabilities, and personality.</li>
-						<li class="list-group-item bg-secondary text-light"><strong>rpm</strong> : (number) Rate of fire expressed in rounds per minute. (0, ~900]</li>
-						<li class="list-group-item bg-secondary text-light"><strong>simulateChamber</strong> : (boolean) Simulates a closed bolt chamber, allowing for one additional bullet to be loaded irrespective of the magazine.</li>
-					</ul>
+			</div>
+			<div class="col">
+				<div class="row">
+					<div class="col bg-dark text-light">
+						<h3 class="display-8">M1911</h3>
+						<ul class="list-group text-light bg-secondary">
+							<li class="list-group-item bg-secondary text-light"><strong>rpm</strong> : 400</li>
+							<li class="list-group-item bg-secondary text-light"><strong>simulateChamber</strong> : true</li>
+							<li class="list-group-item bg-secondary text-light"><strong>description</strong> : Reliable pistol that endured (some fanatics would argue it even won) both world wars. It's known to hold up to abuse, and get the job done. The powerful .45 ACP caliber is also known to be quite a potent threat.</li>
+							<li class="list-group-item bg-secondary text-light">
+								<strong>TrajectoryProfile</strong>: {
+								<ul class="list-group text-light bg-secondary">
+									<li class="list-group-item bg-secondary text-light"><strong>WindInfluence</strong> : 0.0</li>
+									<li class="list-group-item bg-secondary text-light"><strong>DropInfluence</strong> : 2.5</li>
+									<li class="list-group-item bg-secondary text-light"><strong>MaxRebounds</strong> : 1</li>
+									<li class="list-group-item bg-secondary text-light"><strong>PierceDeviation</strong> : 1.0</li>
+									<li class="list-group-item bg-secondary text-light"><strong>InitialSpeed</strong> : 1500</li>
+									<li class="list-group-item bg-secondary text-light"><strong>MaxDistance</strong> : 250</li>
+									<li class="list-group-item bg-secondary text-light"><strong>PierceFriction</strong> : 2.5</li>
+								</ul>
+								}
+							</li>
+							<li class="list-group-item bg-secondary text-light"><strong>ammoCapacity</strong> : 8</li>
+						</ul>
+					</div>
+					<div class="col bg-dark text-light">
+						<h3 class="display-8">Format</h3>
+						<ul class="list-group text-light bg-secondary">
+							<li class="list-group-item bg-secondary text-light"><strong>rpm</strong> : (number) Rate of fire expressed in rounds per minute. (0, ~900]</li>
+							<li class="list-group-item bg-secondary text-light"><strong>simulateChamber</strong> : (boolean) Simulates a closed bolt chamber, allowing for one additional bullet to be loaded irrespective of the magazine.</li>
+							<li class="list-group-item bg-secondary text-light"><strong>description</strong> : (string) A brief but rich description of the gun, its capabilities, and personality.</li>
+							<li class="list-group-item bg-secondary text-light">
+								<strong>TrajectoryProfile</strong>: {
+								<ul class="list-group text-light bg-secondary">
+									<li class="list-group-item bg-secondary text-light"><strong>WindInfluence</strong> : (number) Amount of acceleration in st/s multiplied by normal vector wind [0, inf)</li>
+									<li class="list-group-item bg-secondary text-light"><strong>DragInfluence</strong> : (number) [unused] amount of acceleration against the bullet in st/s^2</li>
+									<li class="list-group-item bg-secondary text-light"><strong>DropInfluence</strong> : (number) Bullet gravity multiplier, (-inf, inf)</li>
+									<li class="list-group-item bg-secondary text-light"><strong>MaxRebounds</strong> : (integer) Amount of possible ricochets, lower values = higher performance. [0, ~5)</li>
+									<li class="list-group-item bg-secondary text-light"><strong>PierceDeviation</strong> : (number) Multiplier to directional influence of the normal vector upon piercing [0, inf)</li>
+									<li class="list-group-item bg-secondary text-light"><strong>InitialSpeed</strong> : (number) Muzzle velocity magnitude in studs per second (0, inf)</li>
+									<li class="list-group-item bg-secondary text-light"><strong>MaxDistance</strong> : (number) Maximum travel distance, lower values = higher performance. (0, inf)</li>
+									<li class="list-group-item bg-secondary text-light"><strong>PierceFriction</strong> : (number) Multiplier to penetration speed deficit upon piercing a part [0, inf)</li>
+								</ul>
+								}
+							</li>
+							<li class="list-group-item bg-secondary text-light"><strong>ammoCapacity</strong> : (integer) Amount of bullets the magazine can store. [1, inf)</li>
+						</ul>
+					</div>
 				</div>
 			</div>
 		</div>
