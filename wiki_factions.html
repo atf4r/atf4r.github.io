@@ -2,7 +2,7 @@
 	<head>
 		<title>Test Site</title>
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css">
-		<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
 		<style>
 			        .center-viewport {
 			            position: absolute;
@@ -10,28 +10,33 @@
 			            transform: translate(-50%);
 			        }
 			        
+			        .tabulator {
+			            display: inline-block;
+			            width: 40px;
+			        }
+			        
 		</style>
 	</head>
 	<body class="bg-dark text-light">
 		<nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark text-light">
 			<div class="container-fluid">
-				<a class="navbar-brand bg-dark text-light" href="#">4R</a>
-				<a class="list-group-item list-group-item-action text-light bg-secondary" href="wiki_factions.html">Factions</a>
+				<a href="#" class="navbar-brand bg-dark text-light">4R</a>
+				<a href="wiki_factions.html" class="list-group-item list-group-item-action text-light bg-secondary">Factions</a>
 			</div>
 		</nav>
 		<div class="row container-fluid bg-dark text-light">
 			<div class="col-2 bg-dark text-light">
 				<div class="col bg-dark text-light">
 					<div class="list-group bg-dark text-light">
-					<a class="list-group-item list-group-item-action bg-secondary text-light" href="#wiki_factions_1">Factions</a>
-					<a class="list-group-item list-group-item-action bg-secondary text-light" href="#wiki_factions_2">Civilian Defense Front</a>
+					<a href="#wiki_factions_1" class="list-group-item list-group-item-action bg-secondary text-light">Factions</a>
+					<a href="#wiki_factions_2" class="list-group-item list-group-item-action bg-secondary text-light">Civilian Defense Front</a>
 				</div>
 			</div>
 		</div>
 		<div class="col-8 bg-dark text-light">
 			<h1 class="row display-4">Factions</h1>
 			<p class="row">
-				<div class="row" id="wiki_factions_1">
+				<div id="wiki_factions_1" class="row">
 					<h2 class="display-7">Factions</h2>
 					<p>
 						The factions in "After the Flash" vary greatly in terms of size, power, and objectives. Some are highly organized and militaristic, aiming to establish order and control in the chaotic world left behind after the apocalyptic event. These factions often have well-defined hierarchies and strict rules. Others are more loosely organized, focusing on survival and self-preservation rather than dominance. They might consist of nomadic scavengers or isolated settlements, each struggling to navigate the challenges of the post-apocalyptic environment.<br>
@@ -40,7 +45,7 @@
 					</p>
 				</div>
 				<hr>
-				<div class="row" id="wiki_factions_2">
+				<div id="wiki_factions_2" class="row">
 					<h3 class="display-15">Civilian Defense Front</h3>
 					<p>
 						The Civilian Defense Front (CDF) is a prominent faction in the "After the Flash" universe, known for its unique and somewhat controversial approach to survival and community building. The CDF's origins can be traced back to a group of survivors who, in the wake of the apocalyptic event, refused to adopt the aggressive and militaristic ideologies of many other factions. Instead, they chose a path rooted in civilian protection, humanitarianism, and diplomacy.<br>
