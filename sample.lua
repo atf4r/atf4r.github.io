@@ -30,26 +30,4 @@ One of the defining features of ROBLOX is its accessibility and versatility. It 
 
 ROBLOX's virtual economy is another notable aspect, with a virtual currency called "Robux" that enables players to buy in-game items, avatar accessories, and other virtual assets. Some developers even monetize their creations by selling game passes and virtual goods, turning their passion for game development into a source of income. This unique blend of social interaction, creative expression, and economic opportunities has contributed to ROBLOX's enduring popularity, making it a favorite destination for gamers of all ages.]]
 
-SAMPLES.GooglePing =
-[[PING google.com (142.250.9.113) 56(84) bytes of data.
-64 bytes from yq-in-f113.1e100.net (142.250.9.113): icmp_seq=1 ttl=106 time=10.0 ms
-64 bytes from yq-in-f113.1e100.net (142.250.9.113): icmp_seq=2 ttl=106 time=8.93 ms
-64 bytes from yq-in-f113.1e100.net (142.250.9.113): icmp_seq=4 ttl=106 time=13.6 ms
-64 bytes from yq-in-f113.1e100.net (142.250.9.113): icmp_seq=5 ttl=106 time=42.2 ms
-64 bytes from yq-in-f113.1e100.net (142.250.9.113): icmp_seq=6 ttl=106 time=8.87 ms
-64 bytes from yq-in-f113.1e100.net (142.250.9.113): icmp_seq=7 ttl=106 time=10.3 ms
-64 bytes from yq-in-f113.1e100.net (142.250.9.113): icmp_seq=8 ttl=106 time=8.89 ms
-64 bytes from yq-in-f113.1e100.net (142.250.9.113): icmp_seq=9 ttl=106 time=8.66 ms
-64 bytes from yq-in-f113.1e100.net (142.250.9.113): icmp_seq=10 ttl=106 time=8.94 ms
-64 bytes from yq-in-f113.1e100.net (142.250.9.113): icmp_seq=11 ttl=106 time=8.73 ms
-64 bytes from yq-in-f113.1e100.net (142.250.9.113): icmp_seq=12 ttl=106 time=9.47 ms
-64 bytes from yq-in-f113.1e100.net (142.250.9.113): icmp_seq=13 ttl=106 time=10.2 ms
-64 bytes from yq-in-f113.1e100.net (142.250.9.113): icmp_seq=14 ttl=106 time=10.4 ms
-64 bytes from yq-in-f113.1e100.net (142.250.9.113): icmp_seq=15 ttl=106 time=8.79 ms
---- google.com ping statistics ---
-15 packets transmitted, 14 received, 6.66667% packet loss, time 14039ms
-rtt min/avg/max/mdev = 8.658/11.998/42.228/8.476 ms]]
-
-SAMPLES.GooglePing = HTML.VTag("code", {}, SAMPLES.GooglePing:gsub('\n', "<br>\n"))
-
 return SAMPLES
