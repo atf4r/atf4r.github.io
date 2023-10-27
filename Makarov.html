@@ -1,0 +1,70 @@
+<html lang="en">
+	<head>
+		<title>Test Site</title>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css">
+		<meta name="viewport" charset="UTF-8" content="width=device-width, initial-scale=1.0">
+		<style>
+			        .center-viewport {
+			            position: absolute;
+			            left: 50%;
+			            transform: translate(-50%);
+			        }
+			        
+			        .tabulator {
+			            display: inline-block;
+			            width: 40px;
+			        }
+			        
+		</style>
+	</head>
+	<body class="container bg-dark text-light">
+		<h1 class="display-4">GunConfig</h1>
+		<div class="row">
+			<div class="col bg-dark text-light">
+				<h4 class="display-8">Makarov</h4>
+				<ul class="list-group text-light bg-secondary">
+					<li class="list-group-item bg-secondary text-light"><strong>simulateChamber</strong> : true</li>
+					<li class="list-group-item bg-secondary text-light"><strong>description</strong> : A cheap russian pistol chambered in 9x18mm Makarov. It has janky, harsh recoil thanks to its no-frills direct blowback system.</li>
+					<li class="list-group-item bg-secondary text-light">
+						<strong>TrajectoryProfile</strong>: {
+						<ul class="list-group text-light bg-secondary">
+							<li class="list-group-item bg-secondary text-light"><strong>InitialSpeed</strong> : 800</li>
+							<li class="list-group-item bg-secondary text-light"><strong>PierceDeviation</strong> : 1.0</li>
+							<li class="list-group-item bg-secondary text-light"><strong>PierceFriction</strong> : 2.5</li>
+							<li class="list-group-item bg-secondary text-light"><strong>DropInfluence</strong> : 1.5</li>
+							<li class="list-group-item bg-secondary text-light"><strong>MaxDistance</strong> : 250</li>
+							<li class="list-group-item bg-secondary text-light"><strong>MaxRebounds</strong> : 0</li>
+							<li class="list-group-item bg-secondary text-light"><strong>WindInfluence</strong> : 0.0</li>
+						</ul>
+						}
+					</li>
+					<li class="list-group-item bg-secondary text-light"><strong>rpm</strong> : 600</li>
+					<li class="list-group-item bg-secondary text-light"><strong>ammoCapacity</strong> : 8</li>
+				</ul>
+			</div>
+			<div class="col bg-dark text-light">
+				<h4 class="display-8">Format</h4>
+				<ul class="list-group text-light bg-secondary">
+					<li class="list-group-item bg-secondary text-light"><strong>simulateChamber</strong> : (boolean) Simulates a closed bolt chamber, allowing for one additional bullet to be loaded irrespective of the magazine.</li>
+					<li class="list-group-item bg-secondary text-light"><strong>description</strong> : (string) A brief but rich description of the gun, its capabilities, and personality.</li>
+					<li class="list-group-item bg-secondary text-light">
+						<strong>TrajectoryProfile</strong>: {
+						<ul class="list-group text-light bg-secondary">
+							<li class="list-group-item bg-secondary text-light"><strong>InitialSpeed</strong> : (number) Muzzle velocity magnitude in studs per second (0, inf)</li>
+							<li class="list-group-item bg-secondary text-light"><strong>PierceDeviation</strong> : (number) Multiplier to directional influence of the normal vector upon piercing [0, inf)</li>
+							<li class="list-group-item bg-secondary text-light"><strong>PierceFriction</strong> : (number) Multiplier to penetration speed deficit upon piercing a part [0, inf)</li>
+							<li class="list-group-item bg-secondary text-light"><strong>DropInfluence</strong> : (number) Bullet gravity multiplier, (-inf, inf)</li>
+							<li class="list-group-item bg-secondary text-light"><strong>MaxDistance</strong> : (number) Maximum travel distance, lower values = higher performance. (0, inf)</li>
+							<li class="list-group-item bg-secondary text-light"><strong>DragInfluence</strong> : (number) [unused] amount of acceleration against the bullet in st/s^2</li>
+							<li class="list-group-item bg-secondary text-light"><strong>MaxRebounds</strong> : (integer) Amount of possible ricochets, lower values = higher performance. [0, ~5)</li>
+							<li class="list-group-item bg-secondary text-light"><strong>WindInfluence</strong> : (number) Amount of acceleration in st/s multiplied by normal vector wind [0, inf)</li>
+						</ul>
+						}
+					</li>
+					<li class="list-group-item bg-secondary text-light"><strong>rpm</strong> : (number) Rate of fire expressed in rounds per minute. (0, ~900]</li>
+					<li class="list-group-item bg-secondary text-light"><strong>ammoCapacity</strong> : (integer) Amount of bullets the magazine can store. [1, inf)</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>

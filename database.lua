@@ -1,5 +1,26 @@
 local Guns = {}
 
+Guns.FORMAT = {
+    simulateChamber = "(boolean) Simulates a closed bolt chamber, allowing for one additional bullet to be loaded irrespective of the magazine.",
+    ammoCapacity = "(integer) Amount of bullets the magazine can store. [1, inf)",
+    rpm = "(number) Rate of fire expressed in rounds per minute. (0, ~900]",
+
+    description = "(string) A brief but rich description of the gun, its capabilities, and personality.",
+
+    TrajectoryProfile = {
+        InitialSpeed = "(number) Muzzle velocity magnitude in studs per second (0, inf)",
+        MaxRebounds = "(integer) Amount of possible ricochets, lower values = higher performance. [0, ~5)",
+        MaxDistance = "(number) Maximum travel distance, lower values = higher performance. (0, inf)",
+        DragInfluence = "(number) [unused] amount of acceleration against the bullet in st/s^2",
+        DropInfluence = "(number) Bullet gravity multiplier, (-inf, inf)",
+        WindInfluence = "(number) Amount of acceleration in st/s multiplied by normal vector wind [0, inf)",
+
+        PierceFriction = "(number) Multiplier to penetration speed deficit upon piercing a part [0, inf)",
+        PierceDeviation = "(number) Multiplier to directional influence of the normal vector upon piercing [0, inf)"
+    }
+}
+
+
 Guns["M1911"] = {
     simulateChamber = true,
     ammoCapacity = 8,

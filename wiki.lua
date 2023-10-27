@@ -46,6 +46,11 @@ WIKI.PAGE_HEAD =
             left: 50%;
             transform: translate(-50%);
         }
+        
+        .tabulator {
+            display: inline-block;
+            width: 40px;
+        }
         ]]
     }
 }
@@ -94,23 +99,17 @@ function WIKI.Section(title, content, titleSize)
             {"p", {class="row"}, content}
 end
 
-function WIKI.Page(title, content, navbar)
+function WIKI.Page(title, content, navbar, ...)
     return 
     HTML.PExpr(
         {
-            "html", {lang="en", ["data-bs-theme"]="dark"},
+            "html", {lang="en"},
             WIKI.PAGE_HEAD,
-            {"body", {class="bg-dark text-light"},
-                navbar,
-                {"div", {class="row container-fluid bg-dark text-light"},
-                    {"div", {class="col-2 bg-dark text-light"},
-                        WIKI.SectionList({test="#",test2="#",test3="#"}, "test"),
-                    },
-                },
-                {"div", {class="col-8 bg-dark text-light"},
+            {"body", {class="container row bg-dark text-light"},
+                {"div", {class="col justify-content-center"},
                     WIKI.Section(title, content)
                 },
-            }
+            },
         }
     )
 end
