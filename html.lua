@@ -8,6 +8,10 @@ local HTML = {
 	Indentation = "\t"
 }
 
+function HTML.INCLUDE_CSS(link)
+	return { "link", {rel="stylesheet", href=link}}
+end
+
 function HTML.STag(t, props)
 	
 	local preamble = string.format("<%s", t)

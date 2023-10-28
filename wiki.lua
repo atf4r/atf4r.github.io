@@ -29,15 +29,8 @@ WIKI.PAGE_HEAD =
 {"head", {},
     {"title", {}, "Test Site"},
 
-    {"link", {
-        rel="stylesheet", 
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css"
-    }},
-
-    {"link", {
-        rel="stylesheet",
-        href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i&display=swap"
-    }},
+    HTML.INCLUDE_CSS "https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css",
+    HTML.INCLUDE_CSS "https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i&display=swap",
 
     {"meta", {
         charset="UTF-8",
