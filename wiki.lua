@@ -51,6 +51,42 @@ WIKI.PAGE_HEAD =
             display: inline-block;
             width: 40px;
         }
+
+        /* Light mode styles */
+        body {
+            background-color: #f3f0e2;;
+            color: #222222;
+        }
+
+        .list-group {
+            background-color: #444444;
+        }
+
+        .list-group .list-group-item {
+            color: #555555;
+            background-color: #ffffff;
+        }
+
+        /* Dark mode styles */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #231815;
+                color: #ffffff;
+            }
+
+            .list-group {
+                background-color: #b69d8e;
+            }
+
+            .list-group .list-group-item {
+                background-color: #555555;
+                color: #ffffff;
+            }
+
+            a {
+                color: #66aabb;
+            }
+        }
         ]]
     }
 }

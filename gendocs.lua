@@ -9,21 +9,21 @@ function RecursiveList(tb, lt, et)
     local content = ""
     for k,v in pairs(tb) do
         if type(v) == "table" then
-            content = content .. html.VTag(et or "li", {class="list-group-item bg-secondary text-light"},
+            content = content .. html.VTag(et or "li", {class="list-group-item"},
                 string.format("<strong>%s</strong>: {\n%s}", k, RecursiveList(v))
             )
         else
-            content = content .. html.VExpr({et or "li", {class="list-group-item bg-secondary text-light"}, string.format("<strong>%s</strong> : %s", k, v)})
+            content = content .. html.VExpr({et or "li", {class="list-group-item"}, string.format("<strong>%s</strong> : %s", k, v)})
         end
     end
-    return html.VTag(lt or "ul", {class="list-group text-light bg-secondary"}, content)
+    return html.VTag(lt or "ul", {class="list-group"}, content)
 end
 
 function HyperlinkList(links)
     local content = {"ul", {}}
 
     for label, dest in pairs(links) do
-        content[#content+1] = {"li", {class="btn-dark btn"}, {"a", {href=dest}, label} }
+        content[#content+1] = {"li", {class="btn"}, {"a", {href=dest}, label} }
     end
 
     return content
@@ -68,8 +68,8 @@ end
 
 links.FORMAT = nil
 
-local navigation = {"div", {class="row container-fluid bg-dark text-light sticky-top"},
-    {"div", {class="col-2 bg-dark text-light"},
+local navigation = {"div", {class="row container-fluid sticky-top"},
+    {"div", {class="col-2"},
         wiki.SectionList(links, "test"),
     },
 }
@@ -81,7 +81,7 @@ for key, value in pairs(bases.GunConfig) do
             print("Oh no! Anyways...")
         else
             local view = 
-            {"body", {class="container col bg-dark text-light"},
+            {"body", {class="container col"},
                 {"h1", {class="display-4"}, "GunConfig"},
                 {"div", {class="row"},
                     {"div", {class="col-md-1"},
@@ -91,11 +91,11 @@ for key, value in pairs(bases.GunConfig) do
                     },
                     {"div", {class="col"},
                         {"div", {class="row"},
-                            {"div", {class="col bg-dark text-light"}, 
+                            {"div", {class="col"}, 
                                 {"h3", {class="display-8"}, key},
                                 RecursiveList(value)
                             },
-                            {"div", {class="col bg-dark text-light"}, 
+                            {"div", {class="col"}, 
                                 {"h3", {class="display-8"}, "Format"},
                                 RecursiveList(bases.GunConfig.FORMAT)
                             }
