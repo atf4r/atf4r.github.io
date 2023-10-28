@@ -1,6 +1,7 @@
 local WIKI = {}
 
 local HTML = require('html')
+local CSS = require('css')
 local SAMPLES = require('sample')
 
 HTML.Indentation = "\t"
@@ -33,61 +34,60 @@ WIKI.PAGE_HEAD =
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css"
     }},
 
+    {"link", {
+        rel="stylesheet",
+        href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i&display=swap"
+    }},
+
     {"meta", {
         charset="UTF-8",
         name="viewport", 
         content="width=device-width, initial-scale=1.0"
     }},
 
-    {"style", {}, 
-        [[
-        .center-viewport {
-            position: absolute;
-            left: 50%;
-            transform: translate(-50%);
-        }
-        
-        .tabulator {
-            display: inline-block;
-            width: 40px;
-        }
+    {"style", {},
+        CSS.PSExpr(
+            { ".center-viewport",
+                position = "absolute",
+                left = "50%",
+                transform = "translate(-50%)"
+            },
 
-        /* Light mode styles */
-        body {
-            background-color: #f3f0e2;;
-            color: #222222;
-        }
+            { ".tabulator",
+                display = "inline-block",
+                width = "40px"
+            },
 
-        .list-group {
-            background-color: #444444;
-        }
+            { "body",
+                ["font-family"] = [['Open Sans', sans-serif]],
+                ["background-color"] = "#f3f0e2",
+                color = "#222222"
+            },
 
-        .list-group .list-group-item {
-            color: #555555;
-            background-color: #ffffff;
-        }
+            { ".list-group .list-group-item",
+                ["background-color"] = "#444444"
+            },
 
-        /* Dark mode styles */
-        @media (prefers-color-scheme: dark) {
-            body {
-                background-color: #231815;
-                color: #ffffff;
+            {"@media (prefers-color-scheme: dark)",
+                { "body",
+                    ["background-color"] = "#231815",
+                    color = "#FFFFFF"
+                },
+
+                { ".list-group",
+                    ["background-color"] = "#b69d8e"
+                },
+                
+                { ".list-group .list-group-item",
+                    ["background-color"] = "#555555",
+                    ["color"] = "#FFFFFF"
+                },
+
+                { "a", 
+                    color = "#66aabb";
+                }
             }
-
-            .list-group {
-                background-color: #b69d8e;
-            }
-
-            .list-group .list-group-item {
-                background-color: #555555;
-                color: #ffffff;
-            }
-
-            a {
-                color: #66aabb;
-            }
-        }
-        ]]
+        )
     }
 }
 
